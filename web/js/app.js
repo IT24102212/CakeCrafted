@@ -1,47 +1,74 @@
-// ScrollReveal animations
-ScrollReveal().reveal('.about-text', {
-    origin: 'left',
-    distance: '50px',
-    duration: 1000,
-    easing: 'ease-in-out',
+// =======================
+// MENU TOGGLE
+// =======================
+const selectElement = function (element) {
+  return document.querySelector(element);
+};
+
+let menuToggler = selectElement('.menu-toggle');
+let body = selectElement('body');
+
+if (menuToggler) {
+  menuToggler.addEventListener('click', function () {
+    body.classList.toggle('show');
+  });
+}
+
+// =======================
+// CLOSE NAV ON LINK CLICK
+// =======================
+let navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(function (navLink) {
+  navLink.addEventListener('click', function () {
+    body.classList.remove('show');
+  });
 });
 
-ScrollReveal().reveal('.about-image', {
-    origin: 'right',
+// =======================
+// SCROLL REVEAL ANIMATIONS
+// =======================
+if (typeof ScrollReveal !== 'undefined') {
+  const sr = ScrollReveal();
+
+  sr.reveal('.animate-top', {
+    origin: 'top',
     distance: '50px',
     duration: 1000,
     delay: 200,
-    easing: 'ease-in-out',
-});
+    easing: 'ease-in-out'
+  });
 
-ScrollReveal().reveal('.reservation', {
+  sr.reveal('.animate-bottom', {
     origin: 'bottom',
-    distance: '40px',
+    distance: '50px',
     duration: 1000,
     delay: 300,
-    easing: 'ease-in-out',
-});
+    easing: 'ease-in-out'
+  });
 
-// Smooth scroll for internal navigation links
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href && href.startsWith("#")) {
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    });
-});
+  sr.reveal('.animate-left', {
+    origin: 'left',
+    distance: '50px',
+    duration: 1000,
+    delay: 400,
+    easing: 'ease-in-out'
+  });
 
-// Reservation form submission confirmation
-const reservationForm = document.querySelector('.reservation-form');
-if (reservationForm) {
-    reservationForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        alert('🎉 Thank you! Your reservation has been submitted.');
-        this.reset();
-    });
+  sr.reveal('.animate-right', {
+    origin: 'right',
+    distance: '50px',
+    duration: 1000,
+    delay: 400,
+    easing: 'ease-in-out'
+  });
 }
+ScrollReveal().reveal('.animate-bottom', {
+  origin: 'bottom',
+  distance: '50px',
+  duration: 1000,
+  delay: 200,
+  easing: 'ease-in-out',
+  interval: 200 // for grid animation stagger
+});
+

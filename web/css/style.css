@@ -59,33 +59,47 @@ img {
 
 /* HERO SECTION */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../images/background cake.jpeg') center/cover no-repeat;
-    color: white;
-    padding: 12rem 4rem;
-    text-align: center;
+  background: linear-gradient(rgba(233, 30, 99, 0.1), rgba(255, 255, 255, 0.85)), url('../images/background cake.jpeg') center/cover no-repeat;
+  padding: 10rem 2rem;
+  text-align: center;
+  color: #fff;
+  position: relative;
 }
-.small-hero {
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.hero2 {
+  background: linear-gradient(rgba(233, 30, 99, 0.1), rgba(255, 255, 255, 0.85)), url('../images/bck4.jpg') center/cover no-repeat;
+  padding: 13rem 2rem;
+  text-align: center;
+  color: #fff;
+  position: relative;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    font-weight: bold;
-   color: #ffffff;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 1.25rem;
-    color: #ffffff;
-    margin-top: 1rem;
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
 }
 
-.hero .btn-primary {
-    display: inline-block;
-    margin-top: 1.5rem;
+.hero-btn {
+  display: inline-block;
+  background-color: #e91e63;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #c2185b;
 }
 
 .about-image img {
@@ -95,8 +109,56 @@ img {
   border-radius: 8px;  /* optional: soft rounded corners */
   display: block;
   margin-left: auto;
-  margin-right: 4rem;
+  margin-right: auto;
 }
+/* review */
+.reviews {
+  background-image: url('../images/bck.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem;
+}
+
+.reviews .container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 4rem 2rem;
+  border-radius: 12px;
+}
+
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.review-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #ffd6e8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.review-card p {
+  font-style: italic;
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.review-card h4 {
+  color: #e91e63;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
 
 
 
@@ -189,6 +251,15 @@ img {
     background-color: #fff7f0;
     text-align: center;
 }
+.baker img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
 .bakers__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -233,6 +304,11 @@ img {
 .social-icons a:hover {
     color: #e91e63;
 }
+.cake-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
 
 /* JOIN US SECTION */
 .join-us {
@@ -272,23 +348,32 @@ img {
 .join-us .btn:hover {
     background-color: #c2185b;
 }
+.join-btn-wrapper {
+  display: flex;
+  justify-content: flex-center;
+  padding-right: 2rem; /* pushes button slightly left from edge */
+  padding-left: 15rem;
+}
+
 
 /* FOOTER */
 footer {
-    background-color: #ffeaf4;
-    padding: 2rem;
-    margin-top: 3rem;
+    background-color: #FFE4E1;
+    padding: 1rem 2rem; /* reduced padding */
+    margin-top: 2rem;   /* optional: reduce top spacing too */
 }
+
 .footer-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
 }
 .footer-about,
-.footer-social {
-    flex: 1 1 250px;
-}
+..footer-social {
+     text-align: right;
+ }
+
 .footer-social a {
     font-size: 1.5rem;
     margin-right: 1rem;
@@ -298,6 +383,11 @@ footer {
 .footer-social a:hover {
     color: #c2185b;
 }
+
+.footer-about h4 {
+    color: #e91e63;
+}
+
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {

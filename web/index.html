@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Poiret+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 </head>
 
 <body>
@@ -20,8 +21,10 @@
         <ul class="nav-list">
             <li><a href="index.html" class="nav-link active">Home</a></li>
             <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="#reservation" class="nav-link">Reservation</a></li>
+            <li><a href="bakers.html" class="nav-link">Bakers</a></li>
+            <li><a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> </a></li>
             <li><a href="login.html" class="nav-link">Login</a></li>
+
         </ul>
     </nav>
 </header>
@@ -29,12 +32,12 @@
 <!-- HERO SECTION -->
 <section class="hero">
     <div class="container">
-        <h1 class="animate-top" style="font-size: 3rem;">Welcome to Cake Crafted</h1>
-        <p class="animate-bottom" style="font-size: 1.25rem;">Baking joy into every occasion with handcrafted cakes and pastries.</p>
-        <a href="register.html" class="btn-primary" style="margin-top: 1rem;">Order Now</a>
-
+        <h1 class="animate-top">Welcome to Cake Crafted</h1>
+        <p class="animate-bottom">Baking joy into every occasion with handcrafted cakes and pastries.</p>
+        <a href="register.html" class="btn-primary hero-btn animate-bottom">Order Now</a>
     </div>
 </section>
+
 
 <!-- FEATURES SECTION -->
 <section class="about-section">
@@ -55,46 +58,27 @@
     </div>
 </section>
 
-<!-- RESERVATION SECTION -->
-<section id="reservation" class="reservation animate-bottom">
-    <div class="container">
-        <h2>Reserve a Custom Cake</h2>
-        <form class="reservation-form">
-
-            <!-- Cake Type -->
-            <select name="cakeType" required>
-                <option disabled selected>Select Cake Type</option>
-                <option>Chocolate cake</option>
-                <option>Egg cake</option>
-                <option>Vanilla cake</option>
-                <option>Red velvet cake</option>
-            </select>
-
-            <!-- Custom Weight Input -->
-            <input
-                    type="number"
-                    name="weight"
-                    placeholder="Enter weight (Kg)"
-                    min="0.5"
-                    step="0.5"
-                    required
-            />
-
-            <!-- Icing Cream Checkbox -->
-            <label style="display: flex; align-items: center; gap: 10px;">
-                <input type="checkbox" name="icingCream" />
-                Include Icing Cream
-            </label>
-
-            <!-- Date and Time -->
-            <input type="date" name="date" required />
-            <input type="time" name="time" required />
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn-primary">Book Now</button>
-        </form>
+<!-- CUSTOMER REVIEWS SECTION -->
+<section class="reviews" style="background-image: url('images/bck4.jpg'); background-size: cover; background-position: center;">
+    <div class="container" style="background-color: rgba(255, 255, 255, 0.9); padding: 4rem 2rem; border-radius: 12px;">
+        <h2 class="headline headline-dark" style="color: #e91e63;">What Our Customers Say</h2>
+        <div class="review-grid animate-bottom">
+            <div class="review-card">
+                <p>"Absolutely delicious! The chocolate cake was rich and moist. Loved it!"</p>
+                <h4>- Sayuni</h4>
+            </div>
+            <div class="review-card">
+                <p>"Amazing designs and on-time delivery. My daughter loved the birthday cake!"</p>
+                <h4>- Nethuli</h4>
+            </div>
+            <div class="review-card">
+                <p>"Highly recommend Cake Crafted for any celebration. Great taste and quality."</p>
+                <h4>- Tharushi</h4>
+            </div>
+        </div>
     </div>
 </section>
+
 
 
 
@@ -102,7 +86,7 @@
 <footer>
     <div class="container footer-content">
         <div class="footer-about">
-            <h4>About Cake Crafted</h4>
+            <h4 style="color: #e91e63;">About Cake Crafted</h4>
             <p>Your favorite custom cake shop bringing creativity and sweetness to your celebrations.</p>
         </div>
         <div class="footer-social">
