@@ -57,13 +57,20 @@ public class CakeCraftedServer {
                 return;
             }
 
-            String body = new String(exchange.getRequestBody().readAllBytes());
-            String[] parts = body.split("&");
+            // Read the request body
+            BufferedReader reader = new BufferedReader(new InputStreamReader(exchange.getRequestBody(), "UTF-8"));
+            StringBuilder body = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                body.append(line);
+            }
 
-            String email = URLDecoder.decode(parts[0].split("=")[1], "UTF-8");
-            String password = URLDecoder.decode(parts[1].split("=")[1], "UTF-8");
+            String[] parts = body.toString().split("&");
+            String email = java.net.URLDecoder.decode(parts[0].split("=")[1], "UTF-8");
+            String password = java.net.URLDecoder.decode(parts[1].split("=")[1], "UTF-8");
 
-            // Simple mock logic
+            System.out.println("Received login for email: " + email + " and password: " + password);
+
             String role = email.equals("admin@gmail.com") ? "admin" : "user";
 
             exchange.sendResponseHeaders(200, role.length());
@@ -72,6 +79,7 @@ public class CakeCraftedServer {
             os.close();
         }
     }
+
 
     static class StaticFileHandler implements HttpHandler {
         public void handle(HttpExchange exchange) throws IOException {
