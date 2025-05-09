@@ -100,22 +100,20 @@
     <div class="container">
         <div class="row">
 
-            <div class="description animate-right">
-                <div class="global-headline">
-                    <h2 class="sub-headline">Careers</h2>
-                    <h3 class="headline headline-dark">Join Our Team</h3>
-                    <div class="asterisk"><i class="fas fa-asterisk"></i></div>
-                </div>
-                <p>Are you passionate about baking? Join our dedicated cake team and turn your love for baking into sweet, delightful creations that bring joy to every celebration!
-                </p>
-                <div class="join-btn-wrapper">
-                    <a href="register.html" class="btn btn-secondary">Join Now</a>
-                </div>
+            <section class="review-form animate-left" style="padding: 80px; background-color: #fff0f5;">
+                <h2 style="color: #e91e63;">Leave a Review</h2>
+                <form action="submitReview" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required style="margin: 10px; padding: 10px; width: 300px;"><br>
+                    <textarea name="message" placeholder="Your Review" required style="margin: 10px; padding: 10px; width: 300px; height: 100px;"></textarea><br>
+                    <button type="submit" style="background-color: #e91e63; color: white; border: none; padding: 10px 20px;">Submit</button>
+                </form>
+            </section>
 
+            <div class="image padding-right animate-right">
+                <img src="images/stall.png" alt="bread" style="width: 450px; height: auto; float: right;" />
             </div>
-            <div class="image padding-right animate-left">
-                <img src="images/stall.png" alt="bread" />
-            </div>
+
+
         </div>
     </div>
 </section>

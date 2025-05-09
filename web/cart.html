@@ -7,79 +7,83 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
   <style>
-    .cart-section {
-      padding: 4rem 2rem;
-      background-color: #fff7f0;
-      text-align: center;
-    }
 
-    .cart-section .headline {
-      color: #e91e63;
-      margin-bottom: 2rem;
-    }
 
-    .cart-table table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: #fff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      border-radius: 10px;
-      overflow: hidden;
-    }
+     .cart-section {
+       padding: 4rem 4rem;
+       background-image:
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), /* The fading overlay */
+    url('images/bc1.jpg'); /* Your background image */
+       text-align: center;
+     }
 
-    .cart-table th,
-    .cart-table td {
-      padding: 1rem;
-      border-bottom: 1px solid #ffeaf4;
-      font-size: 1rem;
-    }
+     .cart-section .headline {
+       color: #e91e63;
+       margin-bottom: 2rem;
+     }
 
-    .cart-table th {
-      background-color: #ffeaf4;
-      color: #e91e63;
-      font-weight: 600;
-    }
+     .cart-table table {
+       width: 100%;
+       border-collapse: collapse;
+       background-color: #fff;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+       border-radius: 10px;
+       overflow: hidden;
+     }
 
-    .cart-table td i {
-      color: #e91e63;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
+     .cart-table th,
+     .cart-table td {
+       padding: 1rem;
+       border-bottom: 1px solid #ffeaf4;
+       font-size: 1rem;
+     }
 
-    .cart-table td i:hover {
-      color: #c2185b;
-    }
+     .cart-table th {
+       background-color: #ffeaf4;
+       color: #e91e63;
+       font-weight: 600;
+     }
 
-    .cart-summary {
-      text-align: right;
-      margin-top: 2rem;
-    }
+     .cart-table td i {
+       color: #e91e63;
+       cursor: pointer;
+       transition: color 0.3s ease;
+     }
 
-    .cart-summary h4 {
-      margin-bottom: 1rem;
-      color: #e91e63;
-      font-size: 1.2rem;
-    }
+     .cart-table td i:hover {
+       color: #c2185b;
+     }
 
-    .cart-summary .btn-primary {
-      background-color: #e91e63;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
+     .cart-summary {
+       text-align: right;
+       margin-top: 2rem;
+     }
 
-    .cart-summary .btn-primary:hover {
-      background-color: #c2185b;
-    }
+     .cart-summary h4 {
+       margin-bottom: 1rem;
+       color: #e91e63;
+       font-size: 1.2rem;
+     }
 
-    @media (max-width: 768px) {
-      .cart-table table, .cart-table th, .cart-table td {
-        font-size: 0.9rem;
-      }
-    }
+     .cart-summary .btn-primary {
+       background-color: #e91e63;
+       padding: 0.75rem 1.5rem;
+       border-radius: 8px;
+       color: #fff;
+       font-weight: bold;
+       text-decoration: none;
+       transition: background 0.3s ease;
+     }
+
+     .cart-summary .btn-primary:hover {
+       background-color: #c2185b;
+     }
+
+     @media (max-width: 768px) {
+       .cart-table table, .cart-table th, .cart-table td {
+         font-size: 0.9rem;
+       }
+     }
   </style>
 </head>
 <body>
@@ -98,8 +102,8 @@
 
 
 <!-- CART SECTION -->
-<section class="cart-section">
-  <div class="container">
+<section class="cart-section ">
+  <div class="container ">
     <h2 class="headline headline-dark">Your Cart</h2>
     <div class="cart-table">
       <table>
@@ -135,7 +139,10 @@
       </div>
     </div>
   </div>
+
 </section>
+
+
 
 <!-- FOOTER -->
 <footer>
