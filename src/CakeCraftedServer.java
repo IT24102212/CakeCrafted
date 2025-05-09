@@ -4,6 +4,7 @@ import com.sun.net.httpserver.HttpExchange;
 
 import java.io.*;
 import java.net.InetSocketAddress;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -25,15 +26,23 @@ public class CakeCraftedServer {
 
     static class RegisterHandler implements HttpHandler {
         public void handle(HttpExchange exchange) throws IOException {
-            String[] parts = exchange.getRequestURI().getQuery().split("&");
-            String name = parts[0].split("=")[1];
-            String email = parts[1].split("=")[1];
-            String password = parts[2].split("=")[1];
-            String role = parts[3].split("=")[1];
+            if (!exchange.getRequestMethod().equalsIgnoreCase("POST")) {
+                exchange.sendResponseHeaders(405, -1); // Method Not Allowed
+                return;
+            }
 
-            // Fake registration result for now
-            boolean success = true; // pretend it's saved in DB
-            String response = success ? "Registered successfully!" : "Email already exists!";
+            String body = new String(exchange.getRequestBody().readAllBytes());
+            String[] parts = body.split("&");
+
+            String name = URLDecoder.decode(parts[0].split("=")[1], "UTF-8");
+            String email = URLDecoder.decode(parts[1].split("=")[1], "UTF-8");
+            String password = URLDecoder.decode(parts[2].split("=")[1], "UTF-8");
+            String role = URLDecoder.decode(parts[3].split("=")[1], "UTF-8");
+
+            // For now, simulate success
+            System.out.println("New user: " + name + " | " + email + " | Role: " + role);
+            String response = "Registered successfully!";
+
             exchange.sendResponseHeaders(200, response.length());
             OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes());
@@ -43,17 +52,23 @@ public class CakeCraftedServer {
 
     static class LoginHandler implements HttpHandler {
         public void handle(HttpExchange exchange) throws IOException {
-            String[] parts = exchange.getRequestURI().getQuery().split("&");
-            String email = parts[0].split("=")[1];
-            String password = parts[1].split("=")[1];
+            if (!exchange.getRequestMethod().equalsIgnoreCase("POST")) {
+                exchange.sendResponseHeaders(405, -1); // Method Not Allowed
+                return;
+            }
 
-            // Fake login logic for now
+            String body = new String(exchange.getRequestBody().readAllBytes());
+            String[] parts = body.split("&");
+
+            String email = URLDecoder.decode(parts[0].split("=")[1], "UTF-8");
+            String password = URLDecoder.decode(parts[1].split("=")[1], "UTF-8");
+
+            // Simple mock logic
             String role = email.equals("admin@gmail.com") ? "admin" : "user";
-            String response = "Login success:" + role;
 
-            exchange.sendResponseHeaders(200, response.length());
+            exchange.sendResponseHeaders(200, role.length());
             OutputStream os = exchange.getResponseBody();
-            os.write(response.getBytes());
+            os.write(role.getBytes());
             os.close();
         }
     }
@@ -62,7 +77,7 @@ public class CakeCraftedServer {
         public void handle(HttpExchange exchange) throws IOException {
             String path = exchange.getRequestURI().getPath();
             if (path.equals("/")) {
-                path = "/index.html"; // default page
+                path = "/index.html";
             }
 
             File file = new File("web" + path);
