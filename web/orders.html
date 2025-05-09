@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orders - Cake Crafted</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Poiret One', cursive;
+      background-image:
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), /* The fading overlay */
+    url('images/bck1.webp'); /* Your background image */
+
+      padding: 2rem;
+    }
+    h2 {
+      color: #e91e63;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      padding: 1rem;
+      border: 1px solid #ffd6e8;
+      text-align: center;
+    }
+    th {
+      background-color: #ffe3ef;
+    }
+    .btn {
+      background-color: #e91e63;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #c2185b;
+    }
+  </style>
+</head>
+<body>
+<h2>New Orders</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Order ID</th>
+    <th>Customer</th>
+    <th>Cake</th>
+    <th>Status</th>
+    <th>Update</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>#1234</td>
+    <td>Sara</td>
+    <td>Fruit Cake </td>
+    <td>Pending</td>
+    <td><button class="btn">Mark as Baked</button></td>
+  </tr>
+  <tr>
+    <td>#1235</td>
+    <td>Ravi</td>
+    <td>Red Velvet </td>
+    <td>Pending</td>
+    <td><button class="btn">Mark as Baked</button></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
