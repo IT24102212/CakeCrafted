@@ -22,23 +22,28 @@ img {
     display: block;
 }
 
+
 /* NAVIGATION */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
-    background-color: #fff;
+    padding: 1.5rem 1.5rem;
+    background-color: #FFE4E1;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
+    bottom :  1.5rem;
+    height:3rem;
     z-index: 1000;
 }
 .logo {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-family: 'Poiret One', cursive;
-    color: #f08c00;
+    color: #e91e63;
+    font-weight: bold;
 }
+
 .nav-list {
     display: flex;
     gap: 1.5rem;
@@ -49,14 +54,14 @@ img {
 }
 .nav-list li a:hover,
 .nav-list li a.active {
-    color: #f08c00;
+    color: #e91e63;
 }
 
 /* HERO SECTION */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../images/about-img-1.jpeg') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../images/background cake.jpeg') center/cover no-repeat;
     color: white;
-    padding: 6rem 2rem;
+    padding: 12rem 4rem;
     text-align: center;
 }
 .small-hero {
@@ -66,6 +71,36 @@ img {
     justify-content: center;
 }
 
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+   color: #ffffff;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-top: 1rem;
+}
+
+.hero .btn-primary {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
+.about-image img {
+  width: 100%;         /* full width of container */
+  height: 300px;       /* fixed shorter height */
+  object-fit: cover;   /* crops the image nicely to fit */
+  border-radius: 8px;  /* optional: soft rounded corners */
+  display: block;
+  margin-left: auto;
+  margin-right: 4rem;
+}
+
+
+
+
 /* GLOBAL HEADLINE STYLES */
 .global-headline {
     text-align: center;
@@ -73,7 +108,7 @@ img {
 .sub-headline {
     font-family: 'Poiret One', cursive;
     font-size: 1.5rem;
-    color: #f08c00;
+    color: #e91e63;
 }
 .headline {
     font-size: 2rem;
@@ -84,7 +119,7 @@ img {
     color: #333;
 }
 .asterisk {
-    color: #f08c00;
+    color: #e91e63;
     font-size: 1.5rem;
     margin: 0.5rem auto;
 }
@@ -101,7 +136,7 @@ img {
 }
 .about-text h2 {
     font-size: 2rem;
-    color: #f08c00;
+    color: #e91e63;
     margin-bottom: 1rem;
 }
 .about-text p {
@@ -111,10 +146,12 @@ img {
 
 /* RESERVATION */
 .reservation {
-    background-color: #fef4e8;
+    background-color: #ffeaf4;
     padding: 4rem 2rem;
     text-align: center;
+    color: #e91e63; /* pink text color */
 }
+
 .reservation h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -135,7 +172,7 @@ img {
 }
 .btn-primary {
     padding: 0.75rem;
-    background-color: #f08c00;
+    background-color: #e91e63;
     color: white;
     border: none;
     border-radius: 8px;
@@ -143,10 +180,10 @@ img {
     font-size: 1rem;
 }
 .btn-primary:hover {
-    background-color: #e67c00;
+    background-color: #c2185b;
 }
 
-/* =============== BAKERS SECTION =============== */
+/* BAKERS SECTION */
 .bakers {
     padding: 4rem 2rem;
     background-color: #fff7f0;
@@ -178,7 +215,7 @@ img {
 .baker h5 {
     font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: #f08c00;
+    color: #e91e63;
 }
 .social-icons {
     display: flex;
@@ -194,12 +231,12 @@ img {
     transition: color 0.3s ease;
 }
 .social-icons a:hover {
-    color: #f08c00;
+    color: #e91e63;
 }
 
-/* =============== JOIN US SECTION =============== */
+/* JOIN US SECTION */
 .join-us {
-    background-color: #fef4e8;
+    background-color: #ffeaf4;
     padding: 4rem 2rem;
 }
 .join-us .row {
@@ -218,23 +255,27 @@ img {
 .join-us .description {
     flex: 1;
 }
+.join-us .description h2,
+.join-us .description h3 {
+    color: #e91e63;
+}
 .join-us .btn {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
-    background-color: #f08c00;
+    background-color: #e91e63;
     color: white;
     border-radius: 6px;
     font-weight: bold;
     transition: background 0.3s ease;
 }
 .join-us .btn:hover {
-    background-color: #e67c00;
+    background-color: #c2185b;
 }
 
 /* FOOTER */
 footer {
-    background-color: #fff0dc;
+    background-color: #ffeaf4;
     padding: 2rem;
     margin-top: 3rem;
 }
@@ -251,11 +292,11 @@ footer {
 .footer-social a {
     font-size: 1.5rem;
     margin-right: 1rem;
-    color: #f08c00;
+    color: #e91e63;
     transition: color 0.3s ease;
 }
 .footer-social a:hover {
-    color: #d46f00;
+    color: #c2185b;
 }
 
 /* MEDIA QUERIES */
