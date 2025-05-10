@@ -59,297 +59,31 @@
     </div>
 </section>
 
-<section class="cake-types" style="
-    padding: 50px;
-    background-image: url('images/bck10.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-">
+<!-- Review part -->
+<section class="join-us" style="background-image: url('images/OIP (1).jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
     <div class="container">
-        <h2 style="text-align: center; color: #e91e63; font-size: 48px;">Our Cake Types</h2>
-        <div class="cake-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
+        <div class="row">
 
-            <!-- Cake Type 1 -->
-            <div class="cake-card" style="
-    width: 250px;
-    border: 2px solid #e91e63;
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    background: transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-">
-                <img src="images/chocolate.png" alt="Chocolate Cake" style="
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    ">
-                <h3 style="color: #e91e63; padding: 15px;">Chocolate Cake</h3>
-                <p>Rs.1900.00</p>
-                <br>
-                <button style="
-        background-color: #e91e63;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#d81b60'" onmouseout="this.style.backgroundColor='#e91e63'">
-                    Add to Cart
-                </button>
-            </div>
+            <section class="review-form animate-left" style="padding: 80px; background-color: #fff0f5;">
+                <h2 style="color: #e91e63;">Leave a Review</h2>
+                <form action="submitReview" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required style="margin: 10px; padding: 10px; width: 300px;"><br>
+                    <textarea name="message" placeholder="Your Review" required style="margin: 10px; padding: 10px; width: 300px; height: 100px;"></textarea><br>
+                    <button type="submit" style="background-color: #e91e63; color: white; border: none; padding: 10px 20px;">Submit</button>
+                </form>
+            </section>
 
-
-            <!-- Cake Type 2 -->
-            <div class="cake-card" style="
-    width: 250px;
-    border: 2px solid #e91e63;
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    background: transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-">
-                <img src="images/vanilla.png" alt="Vanilla Cake" style="
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    ">
-                <h3 style="color: #e91e63; padding: 15px;">Vanilla Cake</h3>
-                <p>Rs.1750.00</p>
-                <br>
-                <button style="
-        background-color: #e91e63;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#d81b60'" onmouseout="this.style.backgroundColor='#e91e63'">
-                    Add to Cart
-                </button>
-            </div>
-
-
-            <!-- Cake Type 3 -->
-            <div class="cake-card" style="
-    width: 250px;
-    border: 2px solid #e91e63;
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    background: transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-">
-                <img src="images/redvelvet.png" alt="Red Velvet Cake" style="
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    ">
-                <h3 style="color: #e91e63; padding: 15px;">Red Velvet Cake</h3>
-                <p>Rs.4000.00</p>
-                <br>
-                <button style="
-        background-color: #e91e63;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#d81b60'" onmouseout="this.style.backgroundColor='#e91e63'">
-                    Add to Cart
-                </button>
-            </div>
-
-
-            <!-- Cake Type 4 -->
-            <div class="cake-card" style="
-    width: 250px;
-    border: 2px solid #e91e63;
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    background: transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-">
-                <img src="images/fruit.png" alt="Fruit Cake" style="
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    ">
-                <h3 style="color: #e91e63; padding: 15px;">Fruit Cake</h3>
-                <p>Rs.3000.00</p>
-                <br>
-                <button style="
-        background-color: #e91e63;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#d81b60'" onmouseout="this.style.backgroundColor='#e91e63'">
-                    Add to Cart
-                </button>
-            </div>
-
-            <!-- Cake Type 4 -->
-            <div class="cake-card" style="
-    width: 250px;
-    border: 2px solid #e91e63;
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    background: transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-">
-                <img src="images/lemon.png" alt="Chocolate Cake" style="
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    ">
-                <h3 style="color: #e91e63; padding: 15px;">Lemon Cake</h3>
-                <p>Rs.2500.00</p>
-                <br>
-                <button style="
-        background-color: #e91e63;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#d81b60'" onmouseout="this.style.backgroundColor='#e91e63'">
-                    Add to Cart
-                </button>
-            </div>
-
-            <!-- Cake Type 5 -->
-            <div class="cake-card" style="
-    width: 250px;
-    border: 2px solid #e91e63;
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    background: transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-">
-                <img src="images/backforest.png" alt="Chocolate Cake" style="
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    ">
-                <h3 style="color: #e91e63; padding: 15px;">Black Forest Cake</h3>
-                <p>Rs.3000.00</p>
-                <br>
-                <button style="
-        background-color: #e91e63;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#d81b60'" onmouseout="this.style.backgroundColor='#e91e63'">
-                    Add to Cart
-                </button>
-            </div>
-
-            <!-- Cake Type 6 -->
-            <div class="cake-card" style="
-    width: 250px;
-    border: 2px solid #e91e63;
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    background: transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-">
-                <img src="images/banana.png" alt="Chocolate Cake" style="
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    ">
-                <h3 style="color: #e91e63; padding: 15px;">Banana Cake</h3>
-                <p>Rs.1800.00</p>
-                <br>
-                <button style="
-        background-color: #e91e63;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#d81b60'" onmouseout="this.style.backgroundColor='#e91e63'">
-                    Add to Cart
-                </button>
-            </div>
-
-            <!-- Cake Type 8 -->
-            <div class="cake-card" style="
-    width: 250px;
-    border: 2px solid #e91e63;
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    background: transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-">
-                <img src="images/cupcake%202.png" alt="Chocolate Cake" style="
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    ">
-                <h3 style="color: #e91e63; padding: 15px;">Cupcake</h3>
-                <p>Rs.200.00</p>
-                <br>
-                <button style="
-        background-color: #e91e63;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#d81b60'" onmouseout="this.style.backgroundColor='#e91e63'">
-                    Add to Cart
-                </button>
+            <div class="image padding-right animate-right">
+                <img src="images/stall.png" alt="bread" style="width: 450px; height: auto; float: right;" />
             </div>
 
 
         </div>
     </div>
 </section>
+
+
 
 
 
