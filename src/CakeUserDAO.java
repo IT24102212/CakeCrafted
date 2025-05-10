@@ -1,54 +1,64 @@
-import java.sql.*;
+import java.io.*;
 
 public class CakeUserDAO {
-    public static void createTable() {
-        String sql = "CREATE TABLE IF NOT EXISTS users ("
-                + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "name TEXT NOT NULL,"
-                + "email TEXT UNIQUE,"
-                + "password TEXT NOT NULL,"
-                + "role TEXT NOT NULL)";
-        try (Connection conn = CakeDBConnection.connect()) {
-            assert conn != null;
-            try (Statement stmt = conn.createStatement()) {
-                stmt.execute(sql);
-            }
-        } catch (Exception e) {
-            System.out.println("Table creation error: " + e.getMessage());
-        }
-    }
+    private static final String FILE = "users.txt";
 
-    public static boolean register(CakeUser user) {
-        String sql = "INSERT INTO users(name, email, password, role) VALUES (?, ?, ?, ?)";
-        try (Connection conn = CakeDBConnection.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, user.name);
-            pstmt.setString(2, user.email);
-            pstmt.setString(3, user.password);
-            pstmt.setString(4, user.role);
-            pstmt.executeUpdate();
+    public static boolean register(CakeUser user) throws IOException {
+        if (emailExists(user.email)) return false;
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE, true))) {
+            writer.write(user.toString());
+            writer.newLine();
             return true;
-        } catch (SQLException e) {
-            System.out.println("Register error: " + e.getMessage());
-            return false;
         }
     }
 
-    public static String login(String email, String password) {
-        String sql = "SELECT role FROM users WHERE email = ? AND password = ?";
-        try (Connection conn = CakeDBConnection.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, email);
-            pstmt.setString(2, password);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return rs.getString("role");
-            } else {
-                return null;
+    public static String login(String email, String password) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts[1].equals(email) && parts[2].equals(password)) {
+                    return parts[3]; // return role
+                }
             }
-        } catch (SQLException e) {
-            System.out.println("Login error: " + e.getMessage());
-            return null;
         }
+        return null;
+    }
+
+    public static boolean emailExists(String email) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.split(",")[1].equals(email)) return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean updateUser(String email, String newName, String newPassword) throws IOException {
+        File file = new File(FILE);
+        File temp = new File("temp_users.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(temp));
+
+        String line;
+        boolean updated = false;
+
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split(",");
+            if (parts[1].equals(email)) {
+                if (!newName.isEmpty()) parts[0] = newName;
+                if (!newPassword.isEmpty()) parts[2] = newPassword;
+                updated = true;
+            }
+            writer.write(String.join(",", parts));
+            writer.newLine();
+        }
+
+        reader.close();
+        writer.close();
+        file.delete();
+        temp.renameTo(file);
+        return updated;
     }
 }
