@@ -1,1 +1,2 @@
 b44945c1-e607-43e4-898b-ee7c692ca75c|uthayakumarabiram2@gmail.com|uthayakumar Abiram|288,V.MRoad|0776346878|COD|Pending|400.0|true|Cupcake:200.0:2;
+3d89ac20-3039-4655-b03c-dcd5e36b5ed8|mehali@gmail.com|Rowinya|Sethalagara|0985756343|COD|Pending|5000.0|false|Red velvet cake:5000.0:1;
