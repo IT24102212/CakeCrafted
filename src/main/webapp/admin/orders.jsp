@@ -8,6 +8,7 @@
 
     <style>
         body {
+
             margin: 0;
             padding: 40px;
             font-family: 'Poiret One', cursive;
