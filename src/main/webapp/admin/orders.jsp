@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.*, models.Cake, models.Order, utils.FileStorageUtil" %>
+<%@ page import="java.util.*, models.Cake, models.Order, models.OrderItem, utils.FileStorageUtil" %>
 
 <html>
 <head>
@@ -24,7 +24,7 @@
         }
 
         table {
-            width: 90%;
+            width: 95%;
             margin: 0 auto;
             border-collapse: collapse;
             background-color: rgba(255, 255, 255, 0.95);
@@ -94,12 +94,13 @@
                 <th>Order ID</th>
                 <th>Email</th>
                 <th>Name</th>
-                <th>PhoneNumber</th>
+                <th>Phone Number</th>
                 <th>Total Amount</th>
                 <th>Status</th>
                 <th>Payment Method</th>
+                <th>Paid</th>
+                <th>Ordered Items</th>
                 <th>Update Status</th>
-                <th>Paymentr</th>
             </tr>
         </thead>
         <tbody>
@@ -116,7 +117,25 @@
                     <td>₹<%= order.getTotalAmount() %></td>
                     <td><%= order.getStatus() %></td>
                     <td><%= order.getPaymentMethod() %></td>
-                     <td><%= order.isPaid() %></td>
+                    <td><%= order.isPaid() %></td>
+                    <td>
+                        <%
+                            List<models.OrderItem> items = order.getItems();
+                            if (items != null && !items.isEmpty()) {
+                                for (models.OrderItem item : items) {
+                        %>
+                            <div>
+                                <strong><%= item.getCakeName() %></strong> - ₹<%= item.getPrice() %> x <%= item.getQuantity() %>
+                            </div>
+                        <%
+                                }
+                            } else {
+                        %>
+                            <em>No items</em>
+                        <%
+                            }
+                        %>
+                    </td>
                     <td>
                         <form action="<%= request.getContextPath() %>/updateOrderStatus" method="post">
                             <input type="hidden" name="orderId" value="<%= order.getOrderId() %>" />

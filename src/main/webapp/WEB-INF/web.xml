@@ -94,6 +94,15 @@
     <servlet-name>AdminOrdersServlet</servlet-name>
     <url-pattern>/admin/orders</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>PaidOrdersServlet</servlet-name>
+    <servlet-class>servlets.PaidOrdersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PaidOrdersServlet</servlet-name>
+    <url-pattern>/admin/payments</url-pattern>
+  </servlet-mapping>
+
 
   <servlet>
     <servlet-name>UpdateOrderStatusServlet</servlet-name>
