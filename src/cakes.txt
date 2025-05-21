@@ -1,0 +1,8 @@
+01,Vanilla cake,vanilla,1 Kg,https://sugarandsparrow.s3.us-west-2.amazonaws.com/flour/wp-content/uploads/2022/02/16214527/Best-Vanilla-Cake-Recipe-6.jpeg,1900.0
+02,Fruit cake,Fruity,1 Kg,https://megrivers.co.uk/cdn/shop/files/Rich-English-Fruit-Cake-square.jpg?v=1705072993,2500.0
+03,Blackforest Cake,Blackforest,1 Kg,https://static01.nyt.com/images/2020/01/15/dining/ss-black-forest-cake/ss-black-forest-cake-square640.jpg,2500.0
+04,Cupcake,vanilla,1 Kg,https://sugargeekshow.com/wp-content/uploads/2022/08/vanilla_cupcake_featured_blog.jpg,200.0
+05,Marble Cake,Choco vanilla,1 Kg,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw6ofHmWypCKzphKFp0jlwLGlrgHc9ae9kMA&s,3000.0
+06,Lemon Cake,lemon,1 Kg,https://dessertsonadime.com/wp-content/uploads/2022/03/1200-x-1800-Lemon-Cake-13-of-22-1.jpg,2000.0
+07,Red velvet cake,redvelvet,1 kg,https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2022/09/Paul_Red_Velvet_Cake_1125.jpg,5000.0
+08,Ribbon cake,vanilla,1 kg,https://lakwimana.com/images/Calming%20Blooms%201.JPG,3000.0
