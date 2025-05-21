@@ -13,18 +13,19 @@ public class RegisterServlet extends HttpServlet {
     // DoPost method handles form submission
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
+        String email = request.getParameter("username");
         String password = request.getParameter("password");
-        String role = request.getParameter("role");
-        System.out.println("Received: " + username + " | " + password + " | " + role);
+        String role = "user";
+        System.out.println("Received: " + email + " | " + password + " | " + role);
 
         // Check if the user already exists
-        if (FileStorageUtil.userExists(username)) {
-            request.setAttribute("message", "Username already exists.");
+        if (FileStorageUtil.userExists(email)) {
+            request.setAttribute("message", "Useremail already exists.");
             request.getRequestDispatcher("/user/register.jsp").forward(request, response);
+
         } else {
             // Create user object
-            User newUser = new User(username, password, role);
+            User newUser = new User(email, password, role);
 
             // Save user to file (users.txt)
             FileStorageUtil.saveUser(newUser);

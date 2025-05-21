@@ -58,7 +58,8 @@ public class CakeServlet extends HttpServlet {
         Cake cake = new Cake(id, name, flavor, size, imageUrl, price);
         FileStorageUtil.saveCake(cake);
         resp.setStatus(HttpServletResponse.SC_CREATED);
-        resp.getWriter().write("Cake created successfully.");
+        resp.sendRedirect(req.getContextPath() + "/admin/admin-cake.jsp");
+
     }
 
     // Get all cakes
@@ -81,7 +82,8 @@ public class CakeServlet extends HttpServlet {
         // Fetch the cake and update details
         Cake updatedCake = new Cake(id, name, flavor, size, imageUrl, price);
         FileStorageUtil.updateCake(updatedCake);
-        resp.getWriter().write("Cake updated successfully.");
+        resp.sendRedirect(req.getContextPath() + "/admin/admin-cake.jsp");
+
     }
 
     // Delete cake by ID
@@ -92,6 +94,7 @@ public class CakeServlet extends HttpServlet {
         // Delete the cake
         System.out.println("Received: " + id + " | " );
         FileStorageUtil.deleteCakeById(id);
-        resp.getWriter().write("Cake deleted successfully.");
+        resp.sendRedirect(req.getContextPath() + "/admin/admin-cake.jsp");
+
     }
 }

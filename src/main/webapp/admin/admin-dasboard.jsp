@@ -59,7 +59,7 @@
    }
 
    .dashboard-bottom {
-     grid-template-columns: repeat(2, 240px);
+     grid-template-columns: repeat(3, 240px);
      justify-content: center; /* ✅ Center the bottom row */
    }
 
@@ -176,7 +176,7 @@
 
   <!-- Payments -->
    <div class="dashboard-bottom">
-  <a href="payments.jsp" class="card animate-top">
+  <a href="payments" class="card animate-top">
     <i class="fas fa-credit-card"></i>
     <h3>Payments</h3>
     <p>View payment history</p>
@@ -187,6 +187,11 @@
      <h3>Feedback</h3>
      <p>View user reviews</p>
    </a>
+     <a href="faqs.jsp" class="card animate-top">
+        <i class="fas fa-comments"></i>
+        <h3>FAQ</h3>
+        <p>View user reviews</p>
+      </a>
    </div>
 
 </section>

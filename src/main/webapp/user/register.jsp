@@ -191,10 +191,7 @@
            <input type="password" id="password" name="password" required />
        </div>
 
-       <div class="form-group">
-           <label for="role">Role:</label>
-           <input type="text" id="role" name="role" required />
-       </div>
+
 
 
         <input type="submit" value="Register" />

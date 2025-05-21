@@ -171,7 +171,7 @@
         <% } %>
     </ul>
 
-    <h3>Total: Rs. <%= total %></h3>
+    <h3>Total: <%= total %></h3>
     <a class="checkout-btn" href="checkout.jsp">Proceed to Checkout</a>
 
 <% } else { %>

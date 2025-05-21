@@ -111,7 +111,7 @@
             color: #444;
         }
 
-        input[type="text"],
+        input[type="email"],
         input[type="password"] {
             width: 100%;
             padding: 0.75rem;
@@ -152,6 +152,14 @@
         .register-link a:hover {
             text-decoration: underline;
         }
+        .error-message {
+            color: red;
+            background-color: #ffe4e1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -161,6 +169,10 @@
 <!-- Login Box -->
 <div class="login-box">
     <h2>Login</h2>
+      <% String errorMessage = (String) request.getAttribute("errorMessage"); %>
+        <% if (errorMessage != null) { %>
+         <div class="error-message"><%= errorMessage %></div>
+        <% } %>
     <form action="<%= request.getContextPath() %>/login" method="post">
         <label for="username">Email:</label>
         <input type="email" id="username" name="username" required />

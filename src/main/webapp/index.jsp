@@ -63,6 +63,7 @@
         </div>
     </div>
 </section>
+<jsp:include page="/components/faqs.jsp" />
 
 <!-- FOOTER -->
 <footer>

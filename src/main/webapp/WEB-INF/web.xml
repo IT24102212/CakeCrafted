@@ -102,7 +102,33 @@
     <servlet-name>PaidOrdersServlet</servlet-name>
     <url-pattern>/admin/payments</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateRoleServlet</servlet-name>
+    <servlet-class>servlets.UpdateRoleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateRoleServlet</servlet-name>
+    <url-pattern>/UpdateRoleServlet</url-pattern>
+  </servlet-mapping>
+  <!-- Admin - Add FAQ Servlet -->
+  <servlet>
+    <servlet-name>AddFAQServlet</servlet-name>
+    <servlet-class>servlets.AddFAQServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddFAQServlet</servlet-name>
+    <url-pattern>/add-faq</url-pattern>
+  </servlet-mapping>
 
+  <!-- User - View FAQ Servlet -->
+  <servlet>
+    <servlet-name>FAQServlet</servlet-name>
+    <servlet-class>servlets.FAQServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FAQServlet</servlet-name>
+    <url-pattern>/faq</url-pattern>
+  </servlet-mapping>
 
   <servlet>
     <servlet-name>UpdateOrderStatusServlet</servlet-name>

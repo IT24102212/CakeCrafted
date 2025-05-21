@@ -87,6 +87,7 @@
     </style>
 </head>
 <body>
+<jsp:include page="/components/header.jsp" />
     <h2>All Orders</h2>
     <table border="1" cellpadding="5" cellspacing="0">
         <thead>
@@ -114,7 +115,7 @@
                     <td><%= order.getEmail() %></td>
                     <td><%= order.getName() %></td>
                     <td><%= order.getPhoneNumber() %></td>
-                    <td>₹<%= order.getTotalAmount() %></td>
+                    <td>Rs.<%= order.getTotalAmount() %></td>
                     <td><%= order.getStatus() %></td>
                     <td><%= order.getPaymentMethod() %></td>
                     <td><%= order.isPaid() %></td>
@@ -125,7 +126,7 @@
                                 for (models.OrderItem item : items) {
                         %>
                             <div>
-                                <strong><%= item.getCakeName() %></strong> - ₹<%= item.getPrice() %> x <%= item.getQuantity() %>
+                                <strong><%= item.getCakeName() %></strong> - Rs.<%= item.getPrice() %> x <%= item.getQuantity() %>
                             </div>
                         <%
                                 }

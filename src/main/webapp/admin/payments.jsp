@@ -55,9 +55,10 @@
     </style>
 </head>
 <body>
+<jsp:include page="/components/header.jsp" />
     <h2>Paid Orders</h2>
     <div class="summary">
-        Total Paid Amount: ₹<%= request.getAttribute("totalPaidAmount") %>
+        Total Paid Amount: Rs.<%= request.getAttribute("totalPaidAmount") %>
     </div>
 
     <table>

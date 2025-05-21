@@ -148,6 +148,7 @@
           border-radius: 8px;
           border: 1px solid #ccc;
           font-size: 1rem;
+          margin-top:15px
         }
 
         .search-btn {
@@ -165,15 +166,25 @@
           background-color: #c2185b;
         }
 
-        .navbar {
-          background-color: #e91e63;
-          color: white;
-          display: flex;
-          align-items: center;
-          padding: 1rem 2rem;
-          justify-content: space-between;
-          flex-wrap: wrap;
-        }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem;
+    background-color: #e91e63;
+    color:white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    bottom :  1.5rem;
+    height:3rem;
+    z-index: 1000;
+}
+.nav-list li a:hover,
+.nav-list li a.active {
+    color:#fdd835;
+}
 
         .navbar .logo {
           font-family: 'Poiret One', cursive;

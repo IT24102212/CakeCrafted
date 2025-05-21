@@ -84,7 +84,7 @@
 
 <!-- Stripe integration script -->
 <script>
-    const stripe = Stripe(""); // ✅ Replace with your Stripe Publishable Key
+    const stripe = Stripe("pk_test_51OlG7VABciUAMlsPewvqA5rkvIkBWn41FA7G9mErn0J7XKMdTPeL7DoHw9oixQzxsFfBtOlPTJcF1Tk8rtR1Pv6700f4B9CA54"); // ✅ Replace with your Stripe Publishable Key
     const elements = stripe.elements();
     const card = elements.create("card", {
         style: {

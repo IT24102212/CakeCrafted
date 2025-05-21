@@ -1,178 +1,124 @@
+<%@ page import="java.util.List" %>
+<%@ page import="models.Order" %>
+<%@ page import="models.OrderItem" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.*, models.Order, models.OrderItem" %>
-
 <html>
 <head>
-    <title>Admin - Manage Orders</title>
+    <title>Your Orders</title>
     <link rel="stylesheet" href="../css/style.css" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Poiret+One&display=swap" rel="stylesheet" />
     <style>
-        body {
-            margin: 0;
-            padding: 40px;
+        .order-card {
+            background-color: #fff0f6;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px auto;
+            width: 85%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            font-family: 'Cabin', sans-serif;
+        }
+
+        .order-title {
+            text-align: center;
             font-family: 'Poiret One', cursive;
-            background: url('../images/bck1.webp') no-repeat center center fixed;
-            background-size: cover;
+            margin-top: 2rem;
+            font-size: 2rem;
             color: #e91e63;
         }
 
-        h2 {
+        .order-item-box {
+            display: flex;
+            justify-content: space-between;
+            background: #fce4ec;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        .order-item-box span {
+            flex: 1;
             text-align: center;
-            font-size: 48px;
-            margin-bottom: 30px;
-            animation: fadeInDown 1s ease-out;
+            font-weight: 500;
         }
 
-        table {
-            width: 90%;
-            margin: 0 auto 40px auto;
-            border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 1.2s ease;
-        }
-
-        th, td {
-            padding: 14px;
-            text-align: center;
-            font-size: 16px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #e91e63;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #fce4ec;
-        }
-
-        tr:nth-child(odd) {
+        .item-header {
+            font-weight: bold;
             background-color: #f8bbd0;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            color: #880e4f;
         }
 
-        select, button {
-            padding: 6px 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
+        .item-header span {
+            flex: 1;
+            text-align: center;
         }
 
-        select {
-            background-color: #fff;
-        }
-
-        button {
-            background-color: #e91e63;
-            color: white;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #c2185b;
-        }
-
-        .items-table {
-            margin: 10px auto;
-            width: 85%;
-            border: 1px solid #ccc;
-        }
-
-        .items-table th {
-            background-color: #f06292;
-        }
-
-        .items-table td, .items-table th {
-            padding: 8px;
-            font-size: 14px;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .empty-order-box {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 3rem;
+            color: #555;
         }
     </style>
 </head>
-<body>
-    <h2>All Orders</h2>
-    <table border="1" cellpadding="5" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Order ID</th>
-                <th>Email</th>
-                <th>Name</th>
-                <th>PhoneNumber</th>
-                <th>Total Amount</th>
-                <th>Status</th>
-                <th>Paid</th>
-                <th>Payment Method</th>
-            </tr>
-        </thead>
-        <tbody>
-            <%
-                List<Order> orders = (List<Order>) request.getAttribute("orders");
-                if (orders != null) {
-                    for (Order order : orders) {
-            %>
-                <tr>
-                    <td><%= order.getOrderId() %></td>
-                    <td><%= order.getEmail() %></td>
-                    <td><%= order.getName() %></td>
-                    <td><%= order.getPhoneNumber() %></td>
-                    <td>Rs.<%= order.getTotalAmount() %></td>
-                    <td><%= order.getStatus() %></td>
-                    <td><%= order.isPaid() ? "Yes" : "No" %></td>
-                    <td><%= order.getPaymentMethod() %></td>
+<body class="orders-bg">
+<jsp:include page="/components/header.jsp" />
+<h1 class="order-title">Your Orders</h1>
 
-                </tr>
-                <tr>
-                    <td colspan="9">
-                        <table class="items-table" border="1">
-                            <thead>
-                                <tr>
-                                    <th>Cake Name</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%
-                                    List<OrderItem> items = order.getItems();
-                                    if (items != null && !items.isEmpty()) {
-                                        for (OrderItem item : items) {
-                                %>
-                                    <tr>
-                                        <td><%= item.getCakeName() %></td>
-                                        <td>Rs.<%= item.getPrice() %></td>
-                                        <td><%= item.getQuantity() %></td>
-                                    </tr>
-                                <%
-                                        }
-                                    } else {
-                                %>
-                                    <tr>
-                                        <td colspan="3">No items found</td>
-                                    </tr>
-                                <%
-                                    }
-                                %>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            <%
-                    }
-                }
-            %>
-        </tbody>
-    </table>
+<%
+    List<Order> orders = (List<Order>) request.getAttribute("orders");
+    if (orders != null && !orders.isEmpty()) {
+        for (Order order : orders) {
+%>
+           <div class="order-card animate-fade">
+               <p><strong>Order ID:</strong> <%= order.getOrderId() %></p>
+               <p><strong>Status:</strong> <%= order.getStatus() %></p>
+               <p><strong>Email:</strong> <%= order.getEmail() %></p>
+               <p><strong>Address:</strong> <%= order.getAddress() %></p>
+               <p><strong>Payment Method:</strong> <%= order.getPaymentMethod() %></p>
+               <p><strong>Total Amount:</strong> ₹<%= order.getTotalAmount() %></p>
+
+               <div class="item-header">
+                   <span>Cake Name</span>
+                   <span>Price</span>
+                   <span>Quantity</span>
+               </div>
+
+               <%
+                   List<OrderItem> items = order.getItems();
+                   if (items != null && !items.isEmpty()) {
+                       for (OrderItem item : items) {
+               %>
+                   <div class="order-item-box">
+                       <span><%= item.getCakeName() %></span>
+                       <span>₹<%= item.getPrice() %></span>
+                       <span><%= item.getQuantity() %></span>
+                   </div>
+               <%
+                       }
+                   } else {
+               %>
+                   <div class="order-item-box">
+                       <span colspan="3">No items found</span>
+                   </div>
+               <%
+                   }
+               %>
+           </div>
+<%
+        }
+    } else {
+%>
+    <div class="empty-order-box">
+        <p>No orders found.</p>
+    </div>
+<%
+    }
+%>
 </body>
 </html>

@@ -23,7 +23,9 @@
 <body>
 
 <!-- HEADER -->
-<jsp:include page="/components/header.jsp" />
+
+    <jsp:include page="/components/header.jsp" />
+
 
 <!-- HERO SECTION -->
 <section class="hero " id="hero" >

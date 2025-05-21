@@ -1,10 +1,6 @@
 package utils;
 
-import models.User;
-import models.Cake;
-import models.Order;
-import models.OrderItem;
-import models.Feedback;
+import models.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,6 +12,7 @@ public class FileStorageUtil {
     private static final String CAKE_FILE = "./src/cakes.txt";
     private static final String ORDER_FILE = "./src/orders.txt";
     private static final String FEEDBACK_FILE = "./src/feedback.txt";
+    private static final String FAQ_FILE = "./src/faqs.txt";
 
     static {
         try {
@@ -30,12 +27,12 @@ public class FileStorageUtil {
 
     // -------------------- USER FUNCTIONS --------------------
 
-    public static boolean userExists(String username) {
-        return getUserByUsername(username) != null;
+    public static boolean userExists(String email) {
+        return getUserByEmail(email) != null;
     }
 
     public static void saveUser(User user) {
-        if (!userExists(user.getUsername())) {
+        if (!userExists(user.getEmail())) {
             List<User> users = readUsersFromFile();
             users.add(user);
             writeUsersToFile(users);
@@ -52,6 +49,55 @@ public class FileStorageUtil {
         return paidOrders;
     }
 
+
+    public static void updateUserRole(String email, String newRole) {
+        List<User> users = readUsersFromFile();
+        boolean updated = false;
+
+        for (int i = 0; i < users.size(); i++) {
+            User user = users.get(i);
+            if (user.getEmail().equals(email)) {
+                user.setRole(newRole);
+                users.set(i, user); // update the user in the list
+                updated = true;
+                break;
+            }
+        }
+
+        if (updated) {
+            System.out.println("User found for role update: " + email);
+            writeUsersToFile(users);
+        } else {
+            System.err.println("User not found for role update: " + email);
+        }
+    }
+
+
+
+    public static void addFAQ(String question, String answer) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FAQ_FILE, true))) {
+            writer.write(question + "::" + answer);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<FAQ> getAllFAQs() {
+        List<FAQ> faqs = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FAQ_FILE))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split("::");
+                if (parts.length == 2) {
+                    faqs.add(new FAQ(parts[0], parts[1]));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return faqs;
+    }
     public static void writeOrdersToFile(List<Order> orders) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(ORDER_FILE))) {
             for (Order order : orders) {
@@ -81,6 +127,7 @@ public class FileStorageUtil {
     }
 
 
+
     public static List<User> readUsersFromFile() {
         List<User> users = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(USER_FILE))) {
@@ -100,7 +147,7 @@ public class FileStorageUtil {
     private static void writeUsersToFile(List<User> users) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(USER_FILE))) {
             for (User user : users) {
-                bw.write(user.getUsername() + "," + user.getPassword() + "," + user.getRole());
+                bw.write(user.getEmail() + "," + user.getPassword() + "," + user.getRole());
                 bw.newLine();
             }
         } catch (IOException e) {
@@ -134,9 +181,9 @@ public class FileStorageUtil {
         return feedbackList;
     }
 
-    public static User getUserByUsername(String username) {
+    public static User getUserByEmail(String email) {
         return readUsersFromFile().stream()
-                .filter(user -> user.getUsername().equals(username))
+                .filter(user -> user.getEmail().equals(email))
                 .findFirst()
                 .orElse(null);
     }
@@ -145,16 +192,16 @@ public class FileStorageUtil {
         return readUsersFromFile();
     }
 
-    public static void deleteUserByUsername(String username) {
+    public static void deleteUserByEmail(String email) {
         List<User> users = readUsersFromFile();
-        users.removeIf(user -> user.getUsername().equals(username));
+        users.removeIf(user -> user.getEmail().equals(email));
         writeUsersToFile(users);
     }
 
     public static void updateUser(User updatedUser) {
         List<User> users = readUsersFromFile();
         for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getUsername().equals(updatedUser.getUsername())) {
+            if (users.get(i).getEmail().equals(updatedUser.getEmail())) {
                 users.set(i, updatedUser);
                 break;
             }
