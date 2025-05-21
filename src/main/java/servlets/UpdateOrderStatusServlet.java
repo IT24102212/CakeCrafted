@@ -21,7 +21,7 @@ public class UpdateOrderStatusServlet extends HttpServlet {
             if (order.getOrderId().equals(orderId)) {
                 order.setStatus(newStatus);
 
-                // ✅ Update isPaid based on status
+
                 if ("Completed".equalsIgnoreCase(newStatus)) {
                     order.setPaid(true);
                 } else if ("Cancelled".equalsIgnoreCase(newStatus)) {

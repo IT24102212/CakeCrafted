@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
 <!-- HEADER -->
 <jsp:include page="/components/header.jsp" />
 

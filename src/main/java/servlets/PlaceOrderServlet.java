@@ -23,7 +23,7 @@ public class PlaceOrderServlet extends HttpServlet {
         String email = request.getParameter("email");
         String name = request.getParameter("name");
         String address = request.getParameter("address");
-        String phoneNumber = request.getParameter("phoneNumber"); // ✅ Added
+        String phoneNumber = request.getParameter("phoneNumber");
         String paymentMethod = request.getParameter("paymentMethod");
         String stripeToken = request.getParameter("stripeToken");
 
@@ -53,20 +53,20 @@ public class PlaceOrderServlet extends HttpServlet {
 
         boolean isPaid = false;
 
-        // ✅ Handle Stripe payment if method is "Online"
+
         if ("Online".equals(paymentMethod)) {
             try {
                 Stripe.apiKey = "";
 
                 ChargeCreateParams params = ChargeCreateParams.builder()
-                        .setAmount((long) (total * 100)) // amount in cents
+                        .setAmount((long) (total * 100))
                         .setCurrency("lkr")
                         .setDescription("Cake Crafted Order")
                         .setSource(stripeToken)
                         .build();
 
                 Charge charge = Charge.create(params);
-                isPaid = charge.getPaid(); // ✅ Mark as paid if successful
+                isPaid = charge.getPaid();
 
             } catch (StripeException e) {
                 e.printStackTrace();
@@ -76,18 +76,18 @@ public class PlaceOrderServlet extends HttpServlet {
             }
         }
 
-        // ✅ Save order details
+
         Order order = new Order();
         order.setOrderId(UUID.randomUUID().toString());
         order.setEmail(email);
         order.setName(name);
         order.setAddress(address);
-        order.setPhoneNumber(phoneNumber); // ✅ Added
+        order.setPhoneNumber(phoneNumber);
         order.setPaymentMethod(paymentMethod);
         order.setStatus("Pending");
         order.setItems(items);
         order.setTotalAmount(total);
-        order.setPaid(isPaid); // ✅ Set isPaid
+        order.setPaid(isPaid);
 
         ServletContext context = getServletContext();
         List<Order> orders = (List<Order>) context.getAttribute("orders");
@@ -97,7 +97,7 @@ public class PlaceOrderServlet extends HttpServlet {
         orders.add(order);
         context.setAttribute("orders", orders);
 
-        FileStorageUtil.saveOrder(order); // Optional persistence
+        FileStorageUtil.saveOrder(order);
 
         session.removeAttribute("cart");
 
