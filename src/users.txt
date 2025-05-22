@@ -1,0 +1,3 @@
+IT24102212,shanu,user
+shanuka,shanuka,user
+sayuni@gmail.com,sayuni123,user
