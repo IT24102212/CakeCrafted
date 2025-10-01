@@ -23,7 +23,7 @@ public class PlaceOrderServlet extends HttpServlet {
         String email = request.getParameter("email");
         String name = request.getParameter("name");
         String address = request.getParameter("address");
-        String phoneNumber = request.getParameter("phoneNumber"); // ✅ Added
+        String phoneNumber = request.getParameter("phoneNumber");
         String paymentMethod = request.getParameter("paymentMethod");
         String stripeToken = request.getParameter("stripeToken");
 
@@ -53,10 +53,9 @@ public class PlaceOrderServlet extends HttpServlet {
 
         boolean isPaid = false;
 
-        // ✅ Handle Stripe payment if method is "Online"
         if ("Online".equals(paymentMethod)) {
             try {
-                Stripe.apiKey = "";
+                Stripe.apiKey = ;
 
                 ChargeCreateParams params = ChargeCreateParams.builder()
                         .setAmount((long) (total * 100)) // amount in cents
@@ -66,7 +65,7 @@ public class PlaceOrderServlet extends HttpServlet {
                         .build();
 
                 Charge charge = Charge.create(params);
-                isPaid = charge.getPaid(); // ✅ Mark as paid if successful
+                isPaid = charge.getPaid();
 
             } catch (StripeException e) {
                 e.printStackTrace();
@@ -76,29 +75,41 @@ public class PlaceOrderServlet extends HttpServlet {
             }
         }
 
-        // ✅ Save order details
+        // Create order
         Order order = new Order();
         order.setOrderId(UUID.randomUUID().toString());
         order.setEmail(email);
         order.setName(name);
         order.setAddress(address);
-        order.setPhoneNumber(phoneNumber); // ✅ Added
+        order.setPhoneNumber(phoneNumber);
         order.setPaymentMethod(paymentMethod);
-        order.setStatus("Pending");
+        order.setStatus("Pending");  // Initial status
         order.setItems(items);
         order.setTotalAmount(total);
-        order.setPaid(isPaid); // ✅ Set isPaid
+        order.setPaid(isPaid);
 
+        Date now = new Date();
+        order.setCreatedDate(now);
+        order.setUpdatedDate(now);
+
+        // Save order to queues by status (Map<String, List<Order>>)
         ServletContext context = getServletContext();
-        List<Order> orders = (List<Order>) context.getAttribute("orders");
-        if (orders == null) {
-            orders = new ArrayList<>();
+
+        Map<String, List<Order>> ordersByStatus = (Map<String, List<Order>>) context.getAttribute("ordersByStatus");
+        if (ordersByStatus == null) {
+            ordersByStatus = new HashMap<>();
         }
-        orders.add(order);
-        context.setAttribute("orders", orders);
 
-        FileStorageUtil.saveOrder(order); // Optional persistence
+        // Add order to the correct status queue
+        ordersByStatus.putIfAbsent(order.getStatus(), new ArrayList<>());
+        ordersByStatus.get(order.getStatus()).add(order);
 
+        context.setAttribute("ordersByStatus", ordersByStatus);
+
+        // Optional persistence
+        FileStorageUtil.saveOrder(order);
+
+        // Clear cart
         session.removeAttribute("cart");
 
         response.sendRedirect("/untitled/user/orders");

@@ -83,7 +83,7 @@
                 <td><%= order.getEmail() %></td>
                 <td><%= order.getName() %></td>
                 <td><%= order.getPhoneNumber() %></td>
-                <td>₹<%= order.getTotalAmount() %></td>
+                <td>Rs.<%= order.getTotalAmount() %></td>
                 <td><%= order.getPaymentMethod() %></td>
             </tr>
         <%

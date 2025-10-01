@@ -1,2 +1,6 @@
 shanuka@gmail.com,shanuka123,ADMIN
 sayuni@gmail.com,sayuni123,user
+aaa@gmail.com,aaa123,user
+sss@gmail.com,sss123,user
+abc@gmail.com,abc123,BAN
+eee@gmail.com,eee123,BAN

@@ -141,6 +141,18 @@ public class FileStorageUtil {
         } catch (IOException e) {
             System.err.println("Error reading users: " + e.getMessage());
         }
+
+        // Bubble Sort by email
+        for (int i = 0; i < users.size() - 1; i++) {
+            for (int j = 0; j < users.size() - i - 1; j++) {
+                if (users.get(j).getEmail().compareToIgnoreCase(users.get(j + 1).getEmail()) > 0) {
+                    // Swap
+                    User temp = users.get(j);
+                    users.set(j, users.get(j + 1));
+                    users.set(j + 1, temp);
+                }
+            }
+        }
         return users;
     }
 
@@ -239,7 +251,20 @@ public class FileStorageUtil {
         } catch (IOException e) {
             System.err.println("Error reading cakes: " + e.getMessage());
         }
-        return cakes;
+
+        // Bubble Sort by cake name
+        for (int i = 0; i < cakes.size() - 1; i++) {
+            for (int j = 0; j < cakes.size() - i - 1; j++) {
+                if (cakes.get(j).getName().compareToIgnoreCase(cakes.get(j + 1).getName()) > 0) {
+                    // Swap
+                    Cake temp = cakes.get(j);
+                    cakes.set(j, cakes.get(j + 1));
+                    cakes.set(j + 1, temp);
+                }
+            }
+        }
+
+   return cakes;
     }
 
     private static void writeCakesToFile(List<Cake> cakes) {

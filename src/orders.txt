@@ -5,3 +5,7 @@ eb39a34e-5372-486e-9d4b-c96184a96e85|uthayakumarabiram@gmail.com|uthayakumar Abi
 4892b524-ec5f-4da9-8772-d48922fb2b16|uthayakumarabiram2@gmail.com|uthayakumar Abiram|288,V.MRoad|0776346878|Online|Pending|2500.0|true|Blackforest Cake:2500.0:1;
 5ce9b211-1775-47c3-ac93-3a28d2bdeaff|uthayakumarabiram5@gmail.com|uthayakumar Abiram|288,V.MRoad|0776346878|Online|Pending|2500.0|true|Blackforest Cake:2500.0:1;
 5fe276d5-b606-4160-8080-28106d1c7b56|sayuni@gmail.com|mehali|malbe|0123456789|Online|Completed|5000.0|true|Blackforest Cake:2500.0:2;
+f6f8f3ac-b974-4598-b33f-c9ea835e6c4f|sayuni@gmail.com|ayanga|malbe|0123456789|Online|Pending|5000.0|true|Fruit cake:2500.0:2;
+a3386696-2ee7-4e2c-9e45-2258fc541aaf|sayuni@gmail.com|ayanga|malbe|0123456789|COD|Pending|5000.0|false|Blackforest Cake:2500.0:2;
+83fcc4aa-98bf-4aa9-b2a5-35ceb32310fd|sayuni@gmail.com|ayanga|malbe|0123456789|COD|Pending|7500.0|false|Blackforest Cake:2500.0:3;
+f6e639a4-721f-4469-a5c4-a6e08bb10381|sayuni@gmail.com|sharan|uduvil|0123456789|Online|Completed|800.0|true|Cupcake:200.0:4;
